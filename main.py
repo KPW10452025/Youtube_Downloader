@@ -5,17 +5,22 @@ ssl._create_default_https_context = ssl._create_unverified_context
 # 從 pytube 裡面調用 YouTube
 from pytube import YouTube
 
-yt = YouTube('https://youtu.be/jN-ttNTKers')
+# 製作一個功能：能在 terminal 輸入 URL
+video_url = input("Please Enter the URL ofr the video: ")
 
-# 使用 .title 可以得到影片的標題
-print(yt.title)
-# 039 尚硅谷 爬虫 字典的高级 修改
+# 輸入完 URL 後顯示如下
+print("Processing, please wait...")
 
-# 將 mp4 的檔案打印出來
-for i in yt.streams.filter(file_extension='mp4'):
-    print(i)
+# 讓系統開始分析
+yt = YouTube(video_url)
+# 讀取影片標題
+video_title = yt.title
+# 塞選影片
+video_streams = yt.streams.get_by_itag(22)
+# video_streams = yt.streams.filter(progressive=True)
+# progressive=True 只的是此檔案同時擁有影像檔與影音檔
 
-# 下載 itag=22 的檔案
-iteam = yt.streams.get_by_itag(22)
-print(iteam)
-iteam.download()
+# 由於下載影片要花時間，所以先顯示系統提示後再使用 .download()
+print("Downloading( {} ), please wait... ".format(video_title))
+video_streams.download()
+print("Download Complete.")
