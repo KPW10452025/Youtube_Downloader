@@ -5,6 +5,9 @@ ssl._create_default_https_context = ssl._create_unverified_context
 # 從 pytube 裡面調用 YouTube
 from pytube import YouTube
 
+# 製作進度條
+from pytube.cli import on_progress
+
 # 製作一個功能：能在 terminal 輸入 URL
 video_url = input("Please Enter the URL ofr the video: ")
 
@@ -12,7 +15,7 @@ video_url = input("Please Enter the URL ofr the video: ")
 print("Processing, please wait...")
 
 # 讓系統開始分析
-yt = YouTube(video_url)
+yt = YouTube(video_url, on_progress_callback=on_progress)
 # 讀取影片標題
 video_title = yt.title
 # 塞選影片
