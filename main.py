@@ -25,5 +25,7 @@ video_streams = yt.streams.get_by_itag(22)
 
 # 由於下載影片要花時間，所以先顯示系統提示後再使用 .download()
 print("Downloading( {} ), please wait... ".format(video_title))
-video_streams.download()
+video_streams.download("/Volumes/PortableSSD/Python_Web_Scrapying/")
 print("Download Complete.")
+
+#  /Volumes/PortableSSD/Youtube/Python_Web_Scrapying 
