@@ -9,6 +9,7 @@ from pytube import YouTube
 from pytube.cli import on_progress
 
 # 製作一個功能：能在 terminal 輸入 URL
+print("=============================================")
 video_url = input("Please Enter the URL ofr the video: ")
 
 # 輸入完 URL 後顯示如下
@@ -22,10 +23,22 @@ video_title = yt.title
 video_streams = yt.streams.get_by_itag(22)
 # video_streams = yt.streams.filter(progressive=True)
 # progressive=True 只的是此檔案同時擁有影像檔與影音檔
+# for video_stream in video_streams:
+    # print(video_stream)
 
-# 由於下載影片要花時間，所以先顯示系統提示後再使用 .download()
-print("Downloading( {} ), please wait... ".format(video_title))
-video_streams.download("/Volumes/PortableSSD/Python_Web_Scrapying/")
-print("Download Complete.")
+# 檢視欲下載檔案的內容
+print("=============================================")
+print("File name( {} )".format(video_title))
+print("File information: ", video_streams)
+
+check_point = input("Press 1 to download. Press 2 to stop: ")
+if int(check_point) == 1:
+    # 由於下載影片要花時間，所以先顯示系統提示後再使用 .download()
+    print("=============================================")
+    print("Downloading( {} ), please wait... ".format(video_title))
+    video_streams.download("/Volumes/PortableSSD/HTML3_CSS3/")
+    print("Download Complete.")
+else:
+    pass
 
 #  /Volumes/PortableSSD/Youtube/Python_Web_Scrapying 
