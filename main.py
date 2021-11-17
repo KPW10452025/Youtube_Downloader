@@ -10,7 +10,7 @@ from pytube.cli import on_progress
 
 # 製作一個功能：能在 terminal 輸入 URL
 print("=============================================")
-video_url = input("Please Enter the URL ofr the video: ")
+video_url = input("Please Enter the URL for the video: ")
 
 # 輸入完 URL 後顯示如下
 print("Processing, please wait...")
