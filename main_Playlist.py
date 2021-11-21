@@ -36,7 +36,7 @@ print('Number of videos in playlist: %s' % len(playlist.video_urls))
 
 for video in playlist.videos:
     resolution720_itag = video.streams.get_by_resolution('720p').itag
-    video.streams.get_by_itag(resolution720_itag).download("/Volumes/PortableSSD/Apple_SwiftUI/")
+    video.streams.get_by_itag(resolution720_itag).download("/Volumes/PortableSSD/06_JavaWeb_JQuery/")
 
 # 下載檔案
 # for video in playlist.videos:
